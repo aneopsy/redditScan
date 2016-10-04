@@ -6,6 +6,8 @@ import urllib.request
 import json
 import codecs
 
+__author__ = 'AneoPsy'
+__version__ = '0.1'
 
 class getPostsThread(QThread):
 
