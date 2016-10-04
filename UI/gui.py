@@ -481,6 +481,9 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
+        self.verticalLayoutTitle = QtWidgets.QVBoxLayout()
+        self.verticalLayoutTitle.setObjectName("verticalLayoutTitle")
+        self.verticalLayout.addLayout(self.verticalLayoutTitle)
         self.subreddits_input_layout = QtWidgets.QHBoxLayout()
         self.subreddits_input_layout.setObjectName("subreddits_input_layout")
         self.label_subreddits = QtWidgets.QLabel(self.centralwidget)
@@ -525,7 +528,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Threading Tutorial - nikolak.com"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Reddit Scanner"))
         self.label_subreddits.setText(_translate("MainWindow", "Subreddits:"))
         self.edit_subreddits.setPlaceholderText(_translate("MainWindow", "python,programming,linux,etc (comma separated)"))
         self.btn_stop.setText(_translate("MainWindow", "Stop"))

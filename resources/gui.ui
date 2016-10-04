@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Threading Tutorial - nikolak.com</string>
+   <string>Reddit Scanner</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QToolTip
@@ -482,6 +482,9 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayoutTitle"/>
+    </item>
     <item>
      <layout class="QHBoxLayout" name="subreddits_input_layout">
       <item>

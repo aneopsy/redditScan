@@ -1,11 +1,10 @@
-from PyQt5 import QtGui, QtWidgets, QtCore
-from PyQt5.QtCore import QThread, pyqtSignal
+from PyQt5 import QtWidgets, QtCore
+from PyQt5.QtCore import QThread
 import sys
 import UI.gui
 import urllib.request
 import json
 import codecs
-import time
 
 
 class getPostsThread(QThread):
@@ -21,7 +20,8 @@ class getPostsThread(QThread):
     def __del__(self):
         self.wait()
 
-    def _get_top_post(self, subreddit, nbrResult):
+    @staticmethod
+    def _get_top_post(subreddit, nbrResult):
         url = "https://www.reddit.com/r/{}.json?limit={}".format(subreddit, nbrResult)
         headers = {'User-Agent': 'AneoPsy'}
         request = urllib.request.Request(url, headers=headers)
@@ -52,8 +52,7 @@ class RedditScan(QtWidgets.QMainWindow, UI.gui.Ui_MainWindow):
         nbr_result = int(self.spinBox.value())
         if subreddit_list == ['']:
             QtWidgets.QMessageBox.critical(self, "No subreddits",
-                                       "You didn't enter any subreddits.",
-                                       QtWidgets.QMessageBox.Ok)
+                                           "You didn't enter any subreddits.", QtWidgets.QMessageBox.Ok)
             return
         self.progress_bar.setMaximum(len(subreddit_list) * nbr_result)
         self.progress_bar.setValue(0)
@@ -78,10 +77,9 @@ class RedditScan(QtWidgets.QMainWindow, UI.gui.Ui_MainWindow):
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    form = RedditScan()
-    form.show()
+    box = RedditScan()
+    box.show()
     app.exec_()
-
 
 if __name__ == '__main__':
     main()
